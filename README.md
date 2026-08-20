@@ -2,7 +2,14 @@
 ...
 
 # imersao
+## Fluxo do programa
+processflow->le o comando->identifica o comando->executa a logica->volta a esperar para outro
+
+
 ## FUNCOES
+* fork ()
+
+ele cria o processo filho e ele retorna o pid do filho caso o processo seja o pai e retorna 0 caso ele ja esteja no pid do filho
 * task 
 ele nao executa nada serve para cadastrar as tarefas
 
