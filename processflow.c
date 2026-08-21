@@ -37,15 +37,31 @@
         return tokens;
     }
 
+    int processar_comando(char *linha){
+        int qtd =qnt_token(linha);
+        if(qtd== 0){
+            return 0;
+        }
+        char** verificacao = tokenizar(linha,qtd);
+        if(verificacao == NULL) return 0;
+        
+        
+        if(strcmp(verificacao[0], "exit") == 0){
+            free(verificacao);
+            return 1;
+        }
+        free(verificacao);
+        return 0;
+    }
 
     int main(){
 
-        task *t=(task*)malloc(sizeof(task));
+        // task *t=(task*)malloc(sizeof(task));
         
-        if(t ==NULL){
-            printf("Erro ao alocar. ");
-            return 1;
-        }
+        // if(t ==NULL){
+        //     printf("Erro ao alocar. ");
+        //     return 1;
+        // }
         char linha[1024];
         
         while (1)
@@ -54,13 +70,12 @@
             if(fgets(linha,1024,stdin)==NULL){
                 break;
             }
-            int qnt_tokens = qnt_token(linha);
             
-            printf("teste funcao %d" , qnt_tokens);
+            if(processar_comando(linha)){
+                printf("TESTE PASSOU");
+                break;
+            }
 
-            char**tokens = tokenizar(linha,qnt_tokens);
-            printf("teste funcao 2 %s %s %s",tokens[0],tokens[1],tokens[2]);
-            break;
 
         }
         
