@@ -1,6 +1,8 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h>
+    #include <unistd.h>
+    #include <sys/types.h> 
 
     typedef struct task{
         char *nome;
@@ -99,6 +101,14 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
     (*qnt_tarefas)++;
     return tarefas;
 }
+task *buscar_task(char *nome,task *tarefas,int qnt_tarefas){
+    for(int i=0;i<qnt_tarefas;i++){
+        if(strcmp(tarefas[i].nome,nome) == 0){
+            return &tarefas[i];
+        }
+    }
+    return NULL;
+}
 int main(){
 
     task *tarefas = NULL;
@@ -125,10 +135,12 @@ int main(){
             int tokens = qnt_token(linha);
             char **lista_separada = tokenizar(linha, tokens);
             tarefas = cadastrar_task(lista_separada,tokens,&qnt_tarefas,tarefas);
+            
             free(lista_separada);
-
-            printf("teste armazenar %s %s %s %d",tarefas->nome,tarefas->programa,tarefas->argumentos[1],tarefas->qnt_args);
+        
         }
+
+          
 
         if(comando == 3){
             printf("run reconhecido\n");

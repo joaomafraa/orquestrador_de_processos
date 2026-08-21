@@ -247,3 +247,29 @@ teste armazenar nome programa argumento 2processflow> ^Cmake: *** [makefile:8: r
 exit
 
 Script done on 2026-08-21 17:56:28-03:00 [COMMAND_EXIT_CODE="130"]
+Script started on 2026-08-21 18:40:44-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="173" LINES="11"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K run
+[?2004l./processflow
+processflow> ^[[A^[[A^[[A^A              task bo in/data        data bin/data
+
+Task 0
+Nome: data
+Programa: bin/data
+Argumentos: bin/data 
+processflow> tak ls bin -1
+processflow> tak l   sk ls bin -1
+
+Task 0
+Nome: data
+Programa: bin/data
+Argumentos: bin/data 
+
+Task 1
+Nome: ls
+Programa: bin
+Argumentos: bin -1 
+processflow> exit
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+ma[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/
