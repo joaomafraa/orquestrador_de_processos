@@ -2,7 +2,6 @@
     #include <stdlib.h>
     #include <string.h>
 
-
     typedef struct task{
         char *nome;
         char *programa;
@@ -50,34 +49,91 @@
             free(verificacao);
             return 1;
         }
+        if(strcmp(verificacao[0], "task") == 0){
+            free(verificacao);
+            
+            return 2;
+        }
+        if(strcmp(verificacao[0], "run") == 0){
+            free(verificacao);
+            printf("ok");
+            return 3;
+        }
         free(verificacao);
         return 0;
     }
 
-    int main(){
+task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, task *tarefas){
 
-        // task *t=(task*)malloc(sizeof(task));
-        
-        // if(t ==NULL){
-        //     printf("Erro ao alocar. ");
-        //     return 1;
-        // }
-        char linha[1024];
-        
-        while (1)
-        {
-            printf("processflow> ");
-            if(fgets(linha,1024,stdin)==NULL){
-                break;
-            }
-            
-            if(processar_comando(linha)){
-                printf("TESTE PASSOU");
-                break;
-            }
-
-
-        }
-        
-        return 0;
+    if(qnt_tokens < 3){
+        printf("Erro: parametros insuficientes\n");
+        return tarefas;
     }
+
+    task *aux = (task*)realloc(tarefas,(*qnt_tarefas + 1) * sizeof(task));
+    if(aux == NULL){
+        printf("Erro de alocacao\n");
+        return tarefas;
+    }
+
+    tarefas = aux;
+
+    task *nova = &tarefas[*qnt_tarefas];
+
+    nova->nome = malloc(strlen(lista_tarefas[1]) + 1);
+    strcpy(nova->nome, lista_tarefas[1]);
+
+    nova->programa = malloc(strlen(lista_tarefas[2]) + 1);
+    strcpy(nova->programa, lista_tarefas[2]);
+
+    nova->qnt_args = qnt_tokens - 2;
+
+    nova->argumentos =malloc((nova->qnt_args + 1) * sizeof(char *));
+
+    for(int i = 0; i < nova->qnt_args; i++){
+        nova->argumentos[i] =malloc(strlen(lista_tarefas[i+2]) + 1);
+        strcpy(nova->argumentos[i], lista_tarefas[i+2]);
+    }
+
+    nova->argumentos[nova->qnt_args] = NULL;
+    (*qnt_tarefas)++;
+    return tarefas;
+}
+int main(){
+
+    task *tarefas = NULL;
+    int qnt_tarefas = 0;
+
+    char linha[1024];
+
+    while(1){
+
+        printf("processflow> ");
+
+        if(fgets(linha, 1024, stdin) == NULL){
+            break;
+        }
+        char copia[1024];
+        strcpy(copia, linha);
+
+        int comando = processar_comando(copia);
+
+        if(comando == 1){
+            break;
+        }
+        if(comando == 2){
+            int tokens = qnt_token(linha);
+            char **lista_separada = tokenizar(linha, tokens);
+            tarefas = cadastrar_task(lista_separada,tokens,&qnt_tarefas,tarefas);
+            free(lista_separada);
+
+            printf("teste armazenar %s %s %s %d",tarefas->nome,tarefas->programa,tarefas->argumentos[1],tarefas->qnt_args);
+        }
+
+        if(comando == 3){
+            printf("run reconhecido\n");
+        }
+    }
+
+    return 0;
+}

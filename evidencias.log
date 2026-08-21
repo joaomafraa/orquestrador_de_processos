@@ -147,29 +147,103 @@ teste funcao 3teste funcao 2 teste 1 2[?2004h]0;joao@LaptopJoaoM: /mnt/c/Users
 [K
 ]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ 
 [K
-essos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make cel[K[Kla[Kean
-[?2004lrm -f *.o processflow
+essos[00m$ 
+[K
+]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ 
+[K
+]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ 
+[K
+]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make cel[K[Kla[Kean
+[?2004l
+rm -f *.o processflow
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ male[K[Kke
-[?2004lgcc -c processflow.c
+[?2004l
+gcc -c processflow.c
 gcc processflow.o -o processflow
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make ri[Kun
-[?2004l./processflow
+[?2004l
+./processflow
 processflow> exit
 TESTE PASSOUprocessflow> ^Cmake: *** [makefile:8: run] Interrupt
 
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make run[K clean
-[?2004lrm -f *.o processflow
+[?2004l
+rm -f *.o processflow
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make clean[2Prun
-[?2004lgcc -c processflow.c
+[?2004l
+gcc -c processflow.c
 gcc processflow.o -o processflow
 ./processflow
 processflow> ^[[A^[[A^[[A            ^[[A    exit
-TESTE PASSOU[?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make clean
-[?2004lrm -f *.o processflow
+TESTE PASSOU[?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ 
+[K
+]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ 
+[K
+]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make clean
+[?2004l
+rm -f *.o processflow
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make
-[?2004lgcc -c processflow.c
+[?2004l
+gcc -c processflow.c
 gcc processflow.o -o processflow
 mak[?2004h]0;joao@LaptopJoaoM: /mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/Users/jcmaf/OneDrive/Desktop/orquestrador_de_processos[00m$ make run
-[?2004l./processflow
+[?2004l
+./processflow
 processflow> 
-processflow>
+de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lmake: 'processflow' is up to date.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[K run[K
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kcadastrar_task[m[K’:
+[01m[Kprocessflow.c:91:22:[m[K [01;35m[Kwarning: [m[Kassignment to ‘[01m[Kchar **[m[K’ from incompatible pointer type ‘[01m[Kchar *[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wincompatible-pointer-types-Wincompatible-pointer-types]8;;[m[K]
+   91 |     nova->argumentos [01;35m[K=[m[K(char*)malloc((nova->qnt_args + 1) * sizeof(char *));
+      |                      [01;35m[K^[m[K
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[K clean[K
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kcadastrar_task[m[K’:
+[01m[Kprocessflow.c:91:22:[m[K [01;35m[Kwarning: [m[Kassignment to ‘[01m[Kchar **[m[K’ from incompatible pointer type ‘[01m[Kchar *[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wincompatible-pointer-types-Wincompatible-pointer-types]8;;[m[K]
+   91 |     nova->argumentos [01;35m[K=[m[K(char*)malloc((nova->qnt_args + 1) * sizeof(char *));
+      |                      [01;35m[K^[m[K
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[K clean[K run
+[?2004l./processflow
+processflow> exit
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kcadastrar_task[m[K’:
+[01m[Kprocessflow.c:91:22:[m[K [01;35m[Kwarning: [m[Kassignment to ‘[01m[Kchar **[m[K’ from incompatible pointer type ‘[01m[Kchar *[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wincompatible-pointer-types-Wincompatible-pointer-types]8;;[m[K]
+   91 |     nova->argumentos [01;35m[K=[m[K(char*)malloc((nova->qnt_args + 1) * sizeof(char *));
+      |                      [01;35m[K^[m[K
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[K run
+[?2004l./processflow
+processflow> tsk    ask nome argumento         progra,a  ma argumento
+teste armazenar nome programa (null) 2processflow> ^[[A^[[A^A          a make cel  lean
+processflow> ^[[A^[[A^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K clean[K clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[2Prun[K clean[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+^[[A^[[A[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[2Prun
+[?2004l./processflow
+processflow> tet ste nome programaa  argumento
+processflow> 
+processflow> tas sk nome programa argumento
+teste armazenar nome programa argumento 2processflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+exit
+
+Script done on 2026-08-21 17:56:28-03:00 [COMMAND_EXIT_CODE="130"]
