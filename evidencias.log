@@ -353,4 +353,13 @@ processflow> processflow> run sequential esperar data         
 Sat Aug 22 14:49:46 -03 2026
 okprocessflow> d^Cmake: *** [makefile:8: run] Interrupt
 
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:Script started on 2026-08-22 20:39:05-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="12"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ which gccsudo apt install build-essentialupdate[K[7Pmake run[K run[K run
+[?2004l./processflow
+processflow> task sucesso /bin/true
+processflow> task    task erro /bin/false
+processflow> run sequential erro      sucesso erro
+Tarefa erro deu erro e terminou com codigo 1: 
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git init
+[?2004lReinitialized existing Git repository in /mnt/c/SO/orquestrador_de_processos/.git/
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git a

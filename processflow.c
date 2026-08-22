@@ -128,6 +128,7 @@ pid_t executar_task(task *tarefas){
     return pid;
 }
 void run_sequential(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
+    
     if(qnt_tokens <3){
         printf("Erro: parametros insuficientes para run\n");
         return;
@@ -138,12 +139,19 @@ void run_sequential(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas
             printf("Erro: tarefa %s nao existe\n", tokens[i]);
             continue;
         }
-        pid_t pid=executar_task(t);
-        if(pid > 0){
-            waitpid(pid, NULL, 0);
+        pid_t pid=executar_task(t);//criou o filho 
+        if(pid > 0){//criou com sucesso entra aq
+            int status;
+            waitpid(pid, &status, 0);//manda o pai esperar e agora vai pegar o status do codigo dps de esperar executar 
+            if(WIFEXITED(status)){//teminou o processo filho entrou aq para analisar o estado de saida
+                int codigo = WEXITSTATUS(status); //pega a saida real do codigo
+                if(codigo !=0){//deu ruim e entra aq
+                    printf("Tarefa %s deu erro e terminou com codigo %d: \n",t->nome,codigo);
+                }
+            }
         }
     }
-}
+}   
 
 int main(){
 
@@ -195,5 +203,6 @@ int main(){
             free(lista_separada);
             }
     }
+
     return 0;
 }
