@@ -292,3 +292,65 @@ exit
 [?2004lexit
 
 Script done on 2026-08-22 13:56:55-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-08-22 14:44:16-03:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="189" LINES="11"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ code .sudo apt install build-essentialupdate[Kcript -a evidencias.logcd orquestrador_de_processosexit[Kmake run[K run[4Pexitmake run[K
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Krun_sequential[m[K’:
+[01m[Kprocessflow.c:132:18:[m[K [01;35m[Kwarning: [m[Kcomparison between pointer and integer
+  132 |     if(qnt_token [01;35m[K<[m[K3){
+      |                  [01;35m[K^[m[K
+[01m[Kprocessflow.c:142:15:[m[K [01;31m[Kerror: [m[Kexpected identifier or ‘[01m[K([m[K’ before ‘[01m[K=[m[K’ token
+  142 |         pid_t [01;31m[K=[m[Kexecutar_task(t);
+      |               [01;31m[K^[m[K
+[01m[Kprocessflow.c:143:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kpid[m[K’ undeclared (first use in this function)
+  143 |         if([01;31m[Kpid[m[K > 0){
+      |            [01;31m[K^~~[m[K
+[01m[Kprocessflow.c:143:12:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kprocessflow.c:207:1:[m[K [01;31m[Kerror: [m[Kexpected declaration or statement at end of input
+  207 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+make: *** [makefile:5: processflow.o] Error 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Krun_sequential[m[K’:
+[01m[Kprocessflow.c:132:18:[m[K [01;35m[Kwarning: [m[Kcomparison between pointer and integer
+  132 |     if(qnt_token [01;35m[K<[m[K3){
+      |                  [01;35m[K^[m[K
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kprocessflow.c:207:1:[m[K [01;31m[Kerror: [m[Kexpected declaration or statement at end of input
+  207 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+make: *** [makefile:5: processflow.o] Error 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ mal[Kke clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Krun_sequential[m[K’:
+[01m[Kprocessflow.c:132:18:[m[K [01;35m[Kwarning: [m[Kcomparison between pointer and integer
+  132 |     if(qnt_token [01;35m[K<[m[K3){
+      |                  [01;35m[K^[m[K
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kprocessflow.c:199:1:[m[K [01;31m[Kerror: [m[Kexpected declaration or statement at end of input
+  199 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+make: *** [makefile:5: processflow.o] Error 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[K
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kprocessflow.c:199:1:[m[K [01;31m[Kerror: [m[Kexpected declaration or statement at end of input
+  199 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+make: *** [makefile:5: processflow.o] Error 1
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean[Kcode .sudo apt install build-essentialupdate[Kcript -a evidencias.logcd orquestrador_de_processosexit[Kmake run[K run[K run
+[?2004l./processflow
+processflow> runs     task esperar /bin/sleep 3^[[D    ^[[D                              task esperar /bin/sleep 3
+processflow> task data /bin/date
+processflow> processflow> run sequential esperar data                                        run sequential esperar data
+Sat Aug 22 14:49:46 -03 2026
+okprocessflow> d^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:

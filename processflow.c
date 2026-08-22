@@ -60,7 +60,6 @@
         }
         if(strcmp(verificacao[0], "run") == 0){
             free(verificacao);
-            printf("ok");
             return 3;
         }
         free(verificacao);
@@ -128,6 +127,23 @@ pid_t executar_task(task *tarefas){
     }
     return pid;
 }
+void run_sequential(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
+    if(qnt_tokens <3){
+        printf("Erro: parametros insuficientes para run\n");
+        return;
+    }
+    for(int i = 2; i < qnt_tokens; i++){
+        task *t = buscar_task(tokens[i],tarefas,qnt_tarefas);
+        if(t == NULL){
+            printf("Erro: tarefa %s nao existe\n", tokens[i]);
+            continue;
+        }
+        pid_t pid=executar_task(t);
+        if(pid > 0){
+            waitpid(pid, NULL, 0);
+        }
+    }
+}
 
 int main(){
 
@@ -160,13 +176,24 @@ int main(){
             free(lista_separada);
         
         }
-
-          
-
         if(comando == 3){
-            printf("run reconhecido\n");
-        }
-    }
+            int tokens = qnt_token(linha);
+            char **lista_separada = tokenizar(linha, tokens);
+            if(lista_separada == NULL){
+                continue;
+            }
+            if(tokens < 3){
+                printf("Erro: parametros insuficientes para run\n");
 
+                free(lista_separada);
+
+                continue;
+            }
+            if(strcmp(lista_separada[1], "sequential") == 0){
+                run_sequential(lista_separada,tokens,tarefas,qnt_tarefas);
+            }
+            free(lista_separada);
+            }
+    }
     return 0;
 }
