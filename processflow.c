@@ -113,7 +113,7 @@ task *buscar_task(char *nome,task *tarefas,int qnt_tarefas){
 pid_t executar_task(task *tarefas){
     pid_t pid=fork();
     if(pid < 0){
-        perror("fork");
+        perror("Erro ao executar programa");//funcao perror so entra caso de erro e imprime essa mensagem + o motivo
         return -1;
 } 
     if(pid ==0){
