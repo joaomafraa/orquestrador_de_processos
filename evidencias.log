@@ -272,4 +272,23 @@ processflow> exit
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
 [?2004lgcc -c processflow.c
 gcc processflow.o -o processflow
-ma[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/
+ma[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/Script started on 2026-08-22 13:43:38-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="173" LINES="12"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[Kscript -a evidencias.logmake[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task task listar /bin/ls -l^[[D^[[D                              lista bin              task listar /bin/ls -l
+PID criado: 591
+processflow> total 64
+-rwxrwxrwx 1 joao joao  1695 Aug 21 17:23 README.md
+-rwxrwxrwx 1 joao joao 23116 Aug 22 13:43 evidencias.log
+-rwxrwxrwx 1 joao joao   207 Aug 21 17:51 makefile
+-rwxrwxrwx 1 joao joao 16832 Aug 22 13:43 processflow
+-rwxrwxrwx 1 joao joao  4448 Aug 22 13:43 processflow.c
+-rwxrwxrwx 1 joao joao  6104 Aug 22 13:43 processflow.o
+exit
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ exit
+[?2004lexit
+
+Script done on 2026-08-22 13:56:55-03:00 [COMMAND_EXIT_CODE="0"]

@@ -3,6 +3,8 @@
     #include <string.h>
     #include <unistd.h>
     #include <sys/types.h> 
+    #include <sys/wait.h>
+    
 
     typedef struct task{
         char *nome;
@@ -109,6 +111,24 @@ task *buscar_task(char *nome,task *tarefas,int qnt_tarefas){
     }
     return NULL;
 }
+pid_t executar_task(task *tarefas){
+    pid_t pid=fork();
+    if(pid < 0){
+        perror("fork");
+        return -1;
+} 
+    if(pid ==0){
+        //entrou no if processo filho é substituido pela chamda do programa registado 
+        //na task
+        execv(tarefas->programa,tarefas->argumentos);
+
+        //se falhar vai vir pr k
+        perror("execv");
+        _exit(1);
+    }
+    return pid;
+}
+
 int main(){
 
     task *tarefas = NULL;
@@ -135,7 +155,8 @@ int main(){
             int tokens = qnt_token(linha);
             char **lista_separada = tokenizar(linha, tokens);
             tarefas = cadastrar_task(lista_separada,tokens,&qnt_tarefas,tarefas);
-            
+
+
             free(lista_separada);
         
         }
