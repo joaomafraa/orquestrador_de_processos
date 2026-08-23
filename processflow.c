@@ -73,7 +73,10 @@
         if(strcmp(verificacao[0], "output") == 0){
             free(verificacao);
             return 4;
-}
+        }if(strcmp(verificacao[0], "append") == 0){
+            free(verificacao);
+            return 4;
+        }
         free(verificacao);
         return 0;
     }
@@ -135,7 +138,13 @@ pid_t executar_task(task *tarefas){
     } 
     if(pid ==0){//entrei no processo filho
         if(tarefas->output != NULL){
-            int fd = open(tarefas->output,O_WRONLY | O_CREAT | O_TRUNC,0644);//nome do arq|somente escrita|se nao existir cria||se ele existir apague as coisas dele|permissoes
+            int fd;
+            if(tarefas->append == 1){
+            fd =open(tarefas->output,O_WRONLY | O_CREAT | O_APPEND,0644);//nome do arq|somente escrita|se nao existir cria||escreva no final|permissoes
+            }
+        else{
+            fd = open(tarefas->output,O_WRONLY | O_CREAT | O_TRUNC,0644);
+        }
             if(fd ==-1){
                 perror("open");
                 _exit(1);
@@ -161,7 +170,8 @@ pid_t executar_task(task *tarefas){
         _exit(1);
     }
     return pid;
-    }
+    
+}
 void run_task(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
     if(qnt_tokens < 2){
         printf("Erro: parametros insuficientes para run\n");
@@ -267,6 +277,12 @@ void configurar_red(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas
         strcpy(t->output, tokens[2]);
         t->append=0;
     }
+    if(strcmp(tokens[0], "append") == 0){
+    t->output = malloc(strlen(tokens[2]) + 1);
+    strcpy(t->output, tokens[2]);
+    t->append = 1;
+}
+    
 
 }
 int main(){

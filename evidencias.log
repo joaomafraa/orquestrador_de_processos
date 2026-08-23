@@ -1355,4 +1355,77 @@ processflow> output ordenar resultado.txt
 processflow> run ordenar
 processprocessflow> ^Cmake: *** [makefile:8: run] Interrupt
 
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ 
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004hflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> append teste historico.txt
+processflow> run teste
+ola
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ /bin/echo: write error: Bad file descriptor
+make run[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+^[[Aprocessos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> append teste historico.txt
+processflow> run teste
+ola
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ /bin/echo: write error: Bad file descriptor
+make run[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+^[[A[[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K clean[K run
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> append teste historico.txt
+processflow> run teste
+processflow> eu  run teste
+processflow> reu  un teste
+processflow> ^Cmake: *** [makefile:8: run] Interrupt
+?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K clean[K run
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> append teste historico.txt
+processflow> run teste
+processflow> eu  run teste
+processflow> reu  un teste
+processflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@Lapto
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K run[K clen[Kan
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make 
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make runpJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K run[K clen[Kan
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make 
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?20
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> append teste saida.txt
+processflow> run teste
+processflow> run teste
+processflow> task teste2 /bin/echo ola2
+processflow> run teste2
+ola2
+processflow> append teste  2 saida.txt
+processflow> run teste2
+processflow> run teste2
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ 
