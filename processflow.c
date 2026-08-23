@@ -127,6 +127,7 @@ pid_t executar_task(task *tarefas){
     }
     return pid;
 }
+
 void run_sequential(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
     
     if(qnt_tokens <3){
@@ -151,7 +152,46 @@ void run_sequential(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas
             }
         }
     }
-}   
+}
+
+void run_parallel(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
+    if(qnt_tokens <3){
+        printf("Erro: parametros insuficientes para run\n");
+        return;
+    }
+
+    pid_t* pids=(pid_t*)malloc((qnt_tokens - 2) * sizeof(pid_t)); //armazenar os pid que vao ser criados
+    if(pids == NULL){
+        printf("Erro alocacao");
+        return;
+    }
+    int qnt_pids = 0;
+    for(int i=2; i<qnt_tokens; i++){
+        task *t = buscar_task(tokens[i],tarefas,qnt_tarefas); 
+        if(t == NULL){
+            printf("Erro: tarefa %s nao existe\n", tokens[i]);
+            continue;
+        }
+        
+        pid_t pid = executar_task(t);
+        if(pid>0){
+            pids[qnt_pids] =pid;
+            qnt_pids ++;
+        }
+    }
+
+    for(int i=0;i<qnt_pids;i++){//outro for para deixar o processo pai esperando os pids acabar
+        int status;
+        waitpid(pids[i],&status,0);
+            if(WIFEXITED(status)){
+                int codigo=WEXITSTATUS(status);
+                if(codigo !=0){
+                    printf("Processo %d deu erro e terminou com codigo %d: \n",pids[i],codigo);
+                }
+            }
+        }
+        free(pids);
+    }
 
 int main(){
 
@@ -197,11 +237,16 @@ int main(){
 
                 continue;
             }
+           
             if(strcmp(lista_separada[1], "sequential") == 0){
                 run_sequential(lista_separada,tokens,tarefas,qnt_tarefas);
             }
+            if(strcmp(lista_separada[1], "parallel") == 0){
+                run_parallel(lista_separada,tokens,tarefas,qnt_tarefas);
+            }
             free(lista_separada);
             }
+            
     }
 
     return 0;
