@@ -323,6 +323,118 @@ void configurar_workdir(char **tokens, int qnt_tokens){
     }
     strcpy(diretorio_atual, tokens[1]);
 }
+void run_pipe(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
+
+    if(qnt_tokens < 4){
+        printf("Erro: faltam tarefas\n");
+        return;
+    }
+    int entrada_anterior = -1; //-1 indica q nao teve anterior
+    pid_t pids[qnt_tokens - 2];
+    int qnt_pids = 0;
+    for(int i = 2; i < qnt_tokens; i++){
+        task *t = buscar_task(tokens[i], tarefas, qnt_tarefas);
+        if(t == NULL){
+            printf("Erro: tarefa %s nao existe\n", tokens[i]);
+            return;
+        }
+        int fd[2]; //fd0 leitura fd1 escrita
+        int ultima = (i == qnt_tokens - 1);
+        if(!ultima){
+            //se nao é a ultima cria um pipe para ligar
+            if(pipe(fd) == -1){
+                perror("pipe");
+                return;
+            }
+        }
+
+        pid_t pid = fork();
+        if(pid < 0){
+            perror("fork");
+            return;
+        }
+        if(pid == 0){ //entrei no filho
+            if(diretorio_atual != NULL){//se tiver wordir entra
+                if(chdir(diretorio_atual) == -1){
+                    perror("workdir");
+                    _exit(1);
+                }
+            }
+
+            if(entrada_anterior != -1){//existe entrada anterior entra aq
+                if(dup2(entrada_anterior, STDIN_FILENO) == -1){ //transforma a leitura do pipe anterior na entrada da task
+                    perror("dup2");
+                    _exit(1);
+                }
+            }
+            else if(t->input != NULL){//tem um arquivo input e nao tem entrada anterior
+                int arquivo = open(t->input, O_RDONLY);//usa o arquivo como entrada
+                if(arquivo == -1){
+                    perror("open");
+                    _exit(1);
+                }
+                dup2(arquivo, STDIN_FILENO);
+                close(arquivo);
+            }
+            if(!ultima){//nao é a ultima  saida tem q ir para a proxima
+                if(dup2(fd[1], STDOUT_FILENO) == -1){//transforma escrita na saida da proxima
+                    perror("dup2");
+                    _exit(1);
+                }
+            }
+            else if(t->output != NULL){//nao é a ultima entao pode usar output normalmente
+                int saida;
+                if(t->append == 1){
+                    saida = open(t->output,O_WRONLY | O_CREAT | O_APPEND,0644);
+                }else{
+
+                    saida=open(t->output,O_WRONLY | O_CREAT | O_TRUNC,0644);
+                }
+
+                if(saida ==-1){
+                    perror("open");
+                    _exit(1);
+                }
+
+                dup2(saida, STDOUT_FILENO);//saida da ultima task
+
+                close(saida);
+            }
+            if(entrada_anterior != -1){
+                close(entrada_anterior);
+            }
+            if(!ultima){
+                close(fd[0]);
+                close(fd[1]);
+            }
+            execv(t->programa,t->argumentos);
+            perror("execv");
+            _exit(1);
+        }
+        pids[qnt_pids] = pid;
+        qnt_pids++;
+        if(entrada_anterior != -1){
+            close(entrada_anterior);
+        }
+        if(!ultima){
+            close(fd[1]);
+            entrada_anterior=fd[0];
+        }else{
+            entrada_anterior=-1;
+        }
+    }
+    //mesma logica do run paralelo
+    for(int i = 0; i < qnt_pids; i++){
+        int status;
+        waitpid(pids[i], &status, 0);
+        if(WIFEXITED(status)){
+            int codigo = WEXITSTATUS(status);
+            if(codigo != 0){
+                printf("Processo %d terminou com codigo %d\n",pids[i],codigo);
+            }
+        }
+    }
+}
 
 int main(){
 
@@ -374,6 +486,8 @@ int main(){
             }
             else if(strcmp(lista_separada[1], "parallel") == 0){
                 run_parallel(lista_separada,tokens,tarefas,qnt_tarefas);
+            }else if(strcmp(lista_separada[1], "pipe") == 0){
+                run_pipe(lista_separada, tokens, tarefas, qnt_tarefas);
             }else{
                 run_task(lista_separada,tokens,tarefas,qnt_tarefas);
             }
