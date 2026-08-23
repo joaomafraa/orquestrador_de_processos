@@ -66,9 +66,13 @@
             free(verificacao);
             return 3;
         }
+        if(strcmp(verificacao[0], "input") == 0){
+            free(verificacao);
+            return 4;
+        }
         if(strcmp(verificacao[0], "output") == 0){
             free(verificacao);
-            return 5;
+            return 4;
 }
         free(verificacao);
         return 0;
@@ -137,6 +141,15 @@ pid_t executar_task(task *tarefas){
                 _exit(1);
             }
             dup2(fd, STDOUT_FILENO);//ele liga a sainda padrao que é 1/stdout... no arquivo
+            close(fd);
+        }
+        if(tarefas->input != NULL){
+            int fd = open(tarefas->input,O_RDONLY);
+            if(fd ==-1){
+                perror("open");
+                _exit(1);
+            }
+            dup2(fd, STDIN_FILENO);
             close(fd);
         }
         //entrou no if processo filho é substituido pela chamda do programa registado 
@@ -235,7 +248,7 @@ void run_parallel(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
         }
         free(pids);
     }
-void configurar_output(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
+void configurar_red(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
     if(qnt_tokens<3){
         printf("Erro: parametros insuficientes\n");
         return;
@@ -245,9 +258,16 @@ void configurar_output(char **tokens, int qnt_tokens,task *tarefas, int qnt_tare
         printf("Erro: tarefa %s nao existe\n", tokens[1]);
         return;
     }
-    t->output = malloc(strlen(tokens[2])+1);
-    strcpy(t->output, tokens[2]);
-    t->append=0;
+    if(strcmp(tokens[0], "input") == 0){
+        t->input = malloc(strlen(tokens[2])+1);
+        strcpy(t->input, tokens[2]);
+    }
+    if(strcmp(tokens[0], "output") == 0){
+        t->output = malloc(strlen(tokens[2])+1);
+        strcpy(t->output, tokens[2]);
+        t->append=0;
+    }
+
 }
 int main(){
 
@@ -304,13 +324,13 @@ int main(){
             }
             free(lista_separada);
             }
-        if(comando == 5){
+        if(comando == 4){
             int tokens = qnt_token(linha);
             char **lista_separada = tokenizar(linha, tokens);
             if(lista_separada == NULL){
                 continue;
             }
-            configurar_output(lista_separada,tokens,tarefas,qnt_tarefas);
+            configurar_red(lista_separada,tokens,tarefas,qnt_tarefas);
             free(lista_separada);
         }
     }
