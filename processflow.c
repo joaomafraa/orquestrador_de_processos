@@ -16,6 +16,13 @@
         char *output;
         int append;
     }task;
+
+    typedef struct job{
+        int id;
+        pid_t pid;
+        char *nome;
+        int finalizado;
+    } job;
     
     char *diretorio_atual = NULL;
 
@@ -75,6 +82,10 @@
         if(strcmp(verificacao[0], "workdir") == 0){
             free(verificacao);
             return 5;
+        }
+        if(strcmp(verificacao[0], "start") == 0){
+            free(verificacao);
+            return 6;
         }
         free(verificacao);
         return 0;
@@ -435,13 +446,63 @@ void run_pipe(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
         }
     }
 }
+job *start_task(char **tokens,int qnt_tokens,task *tarefas,int qnt_tarefas,job *jobs,int *qnt_jobs,int *proximo_id){
+//principal diferença do start para o run com fork e waitpid é que ele fica executando em segundo plano
+    if(qnt_tokens<2){
+        printf("Erro: parametros insuficientes para start\n");
+        return jobs;
+    }
 
+    task *t=buscar_task(tokens[1], tarefas, qnt_tarefas);
+    if(t==NULL){
+        printf("Erro: tarefa %s nao existe\n", tokens[1]);
+        return jobs;
+    }
+
+    pid_t pid=executar_task(t);
+
+    if(pid<0){ //falhou
+        return jobs; //retornou
+    }
+
+    job *aux=realloc(jobs,(*qnt_jobs + 1) * sizeof(job));
+
+    if(aux == NULL){
+        printf("Erro de alocacao\n");
+        return jobs;
+    }
+
+    jobs = aux; //atualiza o jobs pq o realoc pode mudar o end de memoria 
+
+    job *novo = &jobs[*qnt_jobs]; //pega a nova posicao 
+
+    novo->id = *proximo_id; //aq vai salvando as coisas na nova posicao 
+    novo->pid = pid;
+    novo->finalizado = 0;
+
+    novo->nome = malloc(strlen(t->nome) + 1);
+
+    if(novo->nome == NULL){
+        printf("Erro de alocacao\n");
+        return jobs;
+    }
+
+    strcpy(novo->nome,t->nome);
+    printf("Job %d iniciado - PID %d\n",novo->id,novo->pid);
+    (*qnt_jobs)++;//aumenta a quantidade de jobs 
+    (*proximo_id)++;//aumenta o proximo jobs
+    return jobs;
+}
 int main(){
 
     task *tarefas = NULL;
     int qnt_tarefas = 0;
 
     char linha[1024];
+
+    job *jobs = NULL;
+    int qnt_jobs = 0;
+    int proximo_id = 1;
 
     while(1){
 
@@ -511,6 +572,15 @@ int main(){
             configurar_workdir(lista_separada, tokens);
             free(lista_separada);
         }
+        if(comando == 6){
+            int tokens = qnt_token(linha);
+            char **lista_separada=tokenizar(linha, tokens);
+            if(lista_separada == NULL){
+                continue;
+            }
+            jobs = start_task(lista_separada,tokens,tarefas,qnt_tarefas,jobs,&qnt_jobs,&proximo_id);
+            free(lista_separada);
+    }
     }
     free(diretorio_atual);
     return 0;

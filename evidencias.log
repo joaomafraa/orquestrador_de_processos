@@ -1558,4 +1558,12 @@ gcc processflow.o -o processflow
 [?2004l./processflow
 processflow> task gerar2 /usr/bin/printf "A\nB\nC\n"
 processflow> task inverter2 /usr/bin/tac
-p
+processflow> task primeira2 /usr/bin/head -n 1
+processflow> run pipe gerar2 inverter2 primeira2
+"C
+processflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processo
