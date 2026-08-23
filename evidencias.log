@@ -1200,55 +1200,72 @@ processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos
 
 rectory
 Tarefa test terminou com codigo 1
-processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+
 exit
 
 Script done on 2026-08-23 02:25:43-03:00 [COMMAND_EXIT_CODE="0"]
 Script started on 2026-08-23 02:25:55-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="10"]
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[K[K[K
-[?2004lmake: 'processflow' is up to date.
+[?2004l
+make: 'processflow' is up to date.
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
-[?2004l./processflow
+[?2004l
+./processflow
 processflow> task listra    ar bin ls -     /ls -1
 processflow> run listar
 execv: No such file or directory
 Tarefa listar terminou com codigo 1
-processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+
 exit
 
 Script done on 2026-08-23 02:26:43-03:00 [COMMAND_EXIT_CODE="0"]
 Script started on 2026-08-23 02:28:19-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="10"]
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
-[?2004lrm -f *.o processflow
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+[?2004l
+rm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+
 exit
 
 Script done on 2026-08-23 02:29:10-03:00 [COMMAND_EXIT_CODE="0"]
 Script started on 2026-08-23 02:29:20-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="10"]
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
-[?2004lgcc -c processflow.c
+[?2004l
+gcc -c processflow.c
 gcc processflow.o -o processflow
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
-[?2004l./processflow
+[?2004l
+./processflow
 processflow> task listar bin ls   /ls -1
 processflow> run listar
 execv: No such file or directory
 Tarefa listar terminou com codigo 1
-processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ 
+[K
+]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+
 exit
 
 Script done on 2026-08-23 02:30:49-03:00 [COMMAND_EXIT_CODE="0"]
 Script started on 2026-08-23 02:34:29-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="151" LINES="10"]
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
-[?2004lmake: 'processflow' is up to date.
+[?2004l
+make: 'processflow' is up to date.
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
-[?2004l./processflow
+[?2004l
+./processflow
 processflow> tak sk bin ls-1        teste bin   sudo
 processflow> ^[[A    run teste
 execv: No such file or directory
 Tarefa teste terminou com codigo 1
 processflow> exit
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ es[Kxit
-[?2004lexit
+[?2004l
+exit
 
 Script done on 2026-08-23 02:35:16-03:00 [COMMAND_EXIT_CODE="0"]
+script -a evidencias.log
+[?2004lScript started, output log file is 'evidencias.log'.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ 

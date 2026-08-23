@@ -236,7 +236,18 @@ void run_parallel(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
         free(pids);
     }
 void configurar_output(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
-
+    if(qnt_tokens<3){
+        printf("Erro: parametros insuficientes\n");
+        return;
+    }
+    task*t=buscar_task(tokens[1],tarefas,qnt_tarefas);
+    if(t == NULL){
+        printf("Erro: tarefa %s nao existe\n", tokens[1]);
+        return;
+    }
+    t->output = malloc(strlen(tokens[2])+1);
+    strcpy(t->output, tokens[2]);
+    t->append=0;
 }
 int main(){
 
