@@ -1469,4 +1469,27 @@ processflow> ^Cmake: *** [makefile:8: run] Interrupt
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git init
 [?2004lReinitialized existing Git repository in /mnt/c/SO/orquestrador_de_processos/.git/
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git add .
-
+[?2004l[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git comitt[K[K[Kmit -m"[K "Fea[K[K[Kfeat: implementei o workdir com os tratamn[Kentod[Ks de errr[Ko"
+[?2004l[main 1f7b0cb] feat: implementei o workdir com os tratamentos de erro
+ 2 files changed, 82 insertions(+), 2 deletions(-)
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git push origin
+[?2004lEnumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.02 KiB | 116.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/joaomafraa/orquestrador_de_processos.git
+   2fe7abc..1f7b0cb  main -> main
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git push origincommit -m "feat: implementei o workdir com os tratamentos de erro"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cadd .[K[1Pinitmake run[K clean[K run
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+./processflow
+processflow> ^[[A^[[A        task /bin/ls oi
+processflow> output task saida.                  taks  sk teste bin   /bin/ls oi
+processflow> output teste saida.txt
+processflow> run teste
+/bin/ls: cannot access 'oi': No such file or directory
+Tarefa teste terminou com codigo 2
+processflow> ^Cmake: *** [makefile:8: 

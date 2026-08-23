@@ -68,14 +68,7 @@
             free(verificacao);
             return 3;
         }
-        if(strcmp(verificacao[0], "input") == 0){
-            free(verificacao);
-            return 4;
-        }
-        if(strcmp(verificacao[0], "output") == 0){
-            free(verificacao);
-            return 4;
-        }if(strcmp(verificacao[0], "append") == 0){
+        if(strcmp(verificacao[0], "input") == 0 || strcmp(verificacao[0], "output") == 0 || strcmp(verificacao[0], "append") == 0){
             free(verificacao);
             return 4;
         }
@@ -143,6 +136,12 @@ pid_t executar_task(task *tarefas){
         return -1;
     } 
     if(pid ==0){//entrei no processo filho
+        if(diretorio_atual != NULL){
+            if(chdir(diretorio_atual) ==-1){ //altera a pasta de diretorio
+                perror("workdir");
+                _exit(1);
+            }
+        }
         if(tarefas->output != NULL){
             int fd;
             if(tarefas->append == 1){
@@ -167,12 +166,7 @@ pid_t executar_task(task *tarefas){
             dup2(fd, STDIN_FILENO);
             close(fd);
         }
-        if(diretorio_atual != NULL){
-            if(chdir(diretorio_atual) ==-1){ //altera a pasta de diretorio
-                perror("workdir");
-                _exit(1);
-            }
-        }
+        
         //entrou no if processo filho é substituido pela chamda do programa registado 
         //na task
         execv(tarefas->programa,tarefas->argumentos);
@@ -281,15 +275,18 @@ void configurar_red(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas
         return;
     }
     if(strcmp(tokens[0], "input") == 0){
+        free(t->input);
         t->input = malloc(strlen(tokens[2])+1);
         strcpy(t->input, tokens[2]);
     }
     if(strcmp(tokens[0], "output") == 0){
+        free(t->output);
         t->output = malloc(strlen(tokens[2])+1);
         strcpy(t->output, tokens[2]);
         t->append=0;
     }
     if(strcmp(tokens[0], "append") == 0){
+        free(t->append);
     t->output = malloc(strlen(tokens[2]) + 1);
     strcpy(t->output, tokens[2]);
     t->append = 1;
@@ -389,6 +386,6 @@ int main(){
             free(lista_separada);
         }
     }
-
+    free(diretorio_atual);
     return 0;
 }
