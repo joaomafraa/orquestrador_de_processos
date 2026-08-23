@@ -4,7 +4,7 @@
     #include <unistd.h>
     #include <sys/types.h> 
     #include <sys/wait.h>
-    
+    #include <fcntl.h>
 
     typedef struct task{
         char *nome;
@@ -135,8 +135,17 @@ pid_t executar_task(task *tarefas){
     if(pid < 0){
         perror("Erro ao executar programa");//funcao perror so entra caso de erro e imprime essa mensagem + o motivo
         return -1;
-} 
-    if(pid ==0){
+    } 
+    if(pid ==0){//entrei no processo filho
+        if(tarefas->output != NULL){
+        int fd = open(tarefas->output,O_WRONLY | O_CREAT | O_TRUNC,0644);//nome do arq|somente escrita|se nao existir cria||se ele existir apague as coisas dele|permissoes
+        if(fd ==-1){
+            perror("open");
+            _exit(1);
+        }
+        dup2(fd, STDOUT_FILENO);//ele liga a sainda padrao que é 1/stdout... no arquivo
+        close(fd);
+    }
         //entrou no if processo filho é substituido pela chamda do programa registado 
         //na task
         execv(tarefas->programa,tarefas->argumentos);
@@ -146,7 +155,7 @@ pid_t executar_task(task *tarefas){
         _exit(1);
     }
     return pid;
-}
+    }
 void run_task(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
     if(qnt_tokens < 2){
         printf("Erro: parametros insuficientes para run\n");
