@@ -277,17 +277,29 @@ void configurar_red(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas
     if(strcmp(tokens[0], "input") == 0){
         free(t->input);
         t->input = malloc(strlen(tokens[2])+1);
+        if(t->input == NULL){
+            printf("Erro de alocacao\n");
+            return;
+        }
         strcpy(t->input, tokens[2]);
     }
     if(strcmp(tokens[0], "output") == 0){
         free(t->output);
         t->output = malloc(strlen(tokens[2])+1);
+        if(t->output == NULL){
+            printf("Erro de alocacao\n");
+            return;
+        }
         strcpy(t->output, tokens[2]);
         t->append=0;
     }
     if(strcmp(tokens[0], "append") == 0){
-        free(t->append);
+        free(t->output);
     t->output = malloc(strlen(tokens[2]) + 1);
+    if(t->output == NULL){
+        printf("Erro de alocacao\n");
+        return;
+    }
     strcpy(t->output, tokens[2]);
     t->append = 1;
     }
