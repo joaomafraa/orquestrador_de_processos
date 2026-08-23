@@ -1268,4 +1268,61 @@ exit
 Script done on 2026-08-23 02:35:16-03:00 [COMMAND_EXIT_CODE="0"]
 script -a evidencias.log
 [?2004lScript started, output log file is 'evidencias.log'.
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ mae[Kke clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make cleanscript -af evidencias.logScript started on 2026-08-23 02:43:28-03:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="189" LINES="10"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ mae[Kke clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make cleanscript -af evidencias.logexit[Kmake run[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make cleanscript -af evidencias.logexit[Kmake run
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> output teste saida.txt
+processflow> run teste
+processflow> cat saida.txt
+processflow> ^Cexit[Kmake run[K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make cleanscript -af evidencias.logexit[Kmake run
+[?2004l./processflow
+processflow> task teste /bin/echo ola
+processflow> output teste saida.txt
+processflow> run teste
+processflow> cat saida.txt
+processflow> ^Cmake: make: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ cat saida.txt
+[?2004lola
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make cl[Kla[Kean
+[?2004lrm -f *.o processflow
+*** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ cat saida.txt
+[?2004lola
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make cl[Kla[Kean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;3[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task test bin     /bin/echo testeeeeeeeeeee
+processflow> output teste saida.txt
+Erro: tarefa teste nao existe
+processflow> output test saida.txt
+processflow> run test
+processflow> ^C4m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task test bin     /bin/echo testeeeeeeeeeee
+processflow> output teste saida.txt
+Erro: tarefa teste nao existe
+processflow> output test saida.txt
+processflow> run test
+processflow> ^Cmake: ***make: *** [makefile:8: run] Interrupt
+
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ 

@@ -304,7 +304,15 @@ int main(){
             }
             free(lista_separada);
             }
-            
+        if(comando == 5){
+            int tokens = qnt_token(linha);
+            char **lista_separada = tokenizar(linha, tokens);
+            if(lista_separada == NULL){
+                continue;
+            }
+            configurar_output(lista_separada,tokens,tarefas,qnt_tarefas);
+            free(lista_separada);
+        }
     }
 
     return 0;
