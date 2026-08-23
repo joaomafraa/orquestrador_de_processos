@@ -611,4 +611,6 @@ processflow> tas   task espera /usr/bin/sleep 2
 processflow> run espera
 processflow> run espera1
 Erro: tarefa espera1 nao existe
-processflow> run parallel t1 esquec  
+processflow> run parallel t1 esquec  Script started on 2026-08-23 00:52:52-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="6"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git push origin maincommit -m "feat: implementacao de estado de erro no pid"add .[K[1Pinitmake runscript -a evidencias.log[16Pmake run
+

@@ -11,6 +11,10 @@
         char *programa;
         char **argumentos;
         int qnt_args;
+
+        char *input;
+        char *output;
+        int append;
     }task;
 
     int qnt_token(char *linha){
@@ -82,13 +86,26 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
     tarefas = aux;
 
     task *nova = &tarefas[*qnt_tarefas];
+    nova->input = NULL;
+    nova->output = NULL;
+    nova->append = 0;
 
     nova->nome = malloc(strlen(lista_tarefas[1]) + 1);
     strcpy(nova->nome, lista_tarefas[1]);
 
     nova->programa = malloc(strlen(lista_tarefas[2]) + 1);
-    strcpy(nova->programa, lista_tarefas[2]);
 
+    strcpy(nova->programa, lista_tarefas[2]);
+    for(int i=3;i< qnt_tokens; i++){
+
+    if(strcmp(lista_tarefas[i], "output") == 0){
+
+        if(i+1<qnt_tokens){
+            nova->output = malloc(strlen(lista_tarefas[i+1])+1);
+            strcpy(nova->output,lista_tarefas[i+1]);
+        }
+    }
+}
     nova->qnt_args = qnt_tokens - 2;
 
     nova->argumentos =malloc((nova->qnt_args + 1) * sizeof(char *));
@@ -99,6 +116,9 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
     }
 
     nova->argumentos[nova->qnt_args] = NULL;
+    if(nova->output != NULL){
+        printf("Output cadastrado: %s\n", nova->output);
+    }
     (*qnt_tarefas)++;
     return tarefas;
 }
