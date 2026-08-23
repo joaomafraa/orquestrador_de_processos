@@ -100,9 +100,12 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
 
     nova->argumentos =malloc((nova->qnt_args + 1) * sizeof(char *));
 
-    for(int i = 0; i < nova->qnt_args; i++){
-        nova->argumentos[i] =malloc(strlen(lista_tarefas[i+2]) + 1);
-        strcpy(nova->argumentos[i], lista_tarefas[i+2]);
+    int j = 0;
+    for(int i = 2; i < nova->qnt_args; i++){
+        nova->argumentos[j] =malloc(strlen(lista_tarefas[i]) + 1);
+
+        strcpy(nova->argumentos[j], lista_tarefas[i]);
+        j++;
     }
     nova->argumentos[nova->qnt_args] = NULL;
     (*qnt_tarefas)++;
