@@ -66,6 +66,10 @@
             free(verificacao);
             return 3;
         }
+        if(strcmp(verificacao[0], "output") == 0){
+            free(verificacao);
+            return 5;
+}
         free(verificacao);
         return 0;
     }
@@ -101,7 +105,7 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
     nova->argumentos =malloc((nova->qnt_args + 1) * sizeof(char *));
 
     int j = 0;
-    for(int i = 2; i < nova->qnt_args; i++){
+    for(int i = 2; i <qnt_tokens; i++){
         nova->argumentos[j] =malloc(strlen(lista_tarefas[i]) + 1);
 
         strcpy(nova->argumentos[j], lista_tarefas[i]);
@@ -231,7 +235,9 @@ void run_parallel(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
         }
         free(pids);
     }
+void configurar_output(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
 
+}
 int main(){
 
     task *tarefas = NULL;
