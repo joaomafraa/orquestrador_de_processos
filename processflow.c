@@ -94,18 +94,8 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
     strcpy(nova->nome, lista_tarefas[1]);
 
     nova->programa = malloc(strlen(lista_tarefas[2]) + 1);
-
     strcpy(nova->programa, lista_tarefas[2]);
-    for(int i=3;i< qnt_tokens; i++){
-
-    if(strcmp(lista_tarefas[i], "output") == 0){
-
-        if(i+1<qnt_tokens){
-            nova->output = malloc(strlen(lista_tarefas[i+1])+1);
-            strcpy(nova->output,lista_tarefas[i+1]);
-        }
-    }
-}
+    
     nova->qnt_args = qnt_tokens - 2;
 
     nova->argumentos =malloc((nova->qnt_args + 1) * sizeof(char *));
@@ -114,11 +104,7 @@ task *cadastrar_task(char **lista_tarefas, int qnt_tokens, int *qnt_tarefas, tas
         nova->argumentos[i] =malloc(strlen(lista_tarefas[i+2]) + 1);
         strcpy(nova->argumentos[i], lista_tarefas[i+2]);
     }
-
     nova->argumentos[nova->qnt_args] = NULL;
-    if(nova->output != NULL){
-        printf("Output cadastrado: %s\n", nova->output);
-    }
     (*qnt_tarefas)++;
     return tarefas;
 }
@@ -138,14 +124,14 @@ pid_t executar_task(task *tarefas){
     } 
     if(pid ==0){//entrei no processo filho
         if(tarefas->output != NULL){
-        int fd = open(tarefas->output,O_WRONLY | O_CREAT | O_TRUNC,0644);//nome do arq|somente escrita|se nao existir cria||se ele existir apague as coisas dele|permissoes
-        if(fd ==-1){
-            perror("open");
-            _exit(1);
+            int fd = open(tarefas->output,O_WRONLY | O_CREAT | O_TRUNC,0644);//nome do arq|somente escrita|se nao existir cria||se ele existir apague as coisas dele|permissoes
+            if(fd ==-1){
+                perror("open");
+                _exit(1);
+            }
+            dup2(fd, STDOUT_FILENO);//ele liga a sainda padrao que é 1/stdout... no arquivo
+            close(fd);
         }
-        dup2(fd, STDOUT_FILENO);//ele liga a sainda padrao que é 1/stdout... no arquivo
-        close(fd);
-    }
         //entrou no if processo filho é substituido pela chamda do programa registado 
         //na task
         execv(tarefas->programa,tarefas->argumentos);
