@@ -1428,4 +1428,45 @@ ola2
 processflow> append teste  2 saida.txt
 processflow> run teste2
 processflow> run teste2
-processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ 
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ Script started on 2026-08-23 14:02:30-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="10"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make 
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [?2004l
+exit
+
+Script done on 2026-08-23 14:07:21-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-08-23 14:07:33-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="189" LINES="10"]
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[Krun[K
+[?2004lgcc -c processflow.c
+^[[Agcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task listar /bin/pwd
+processflow> run listar
+/mnt/c/SO/orquestrador_de_processos
+processflow> workdir /tmp
+processflow> run listar
+/tmp
+processflow> workdir n  _existe
+processflow> run listar
+workdir: No such file or directory
+Tarefa listar terminou com codigo 1
+processflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task listar /bin/pwd
+processflow> workdir /tmp    nao  _existe
+workdir: No such file or directory
+processflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git init
+[?2004lReinitialized existing Git repository in /mnt/c/SO/orquestrador_de_processos/.git/
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ git add .
+

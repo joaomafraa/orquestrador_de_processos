@@ -16,6 +16,8 @@
         char *output;
         int append;
     }task;
+    
+    char *diretorio_atual = NULL;
 
     int qnt_token(char *linha){
         char* aux = (char* )malloc(strlen(linha) +1);
@@ -76,6 +78,10 @@
         }if(strcmp(verificacao[0], "append") == 0){
             free(verificacao);
             return 4;
+        }
+        if(strcmp(verificacao[0], "workdir") == 0){
+            free(verificacao);
+            return 5;
         }
         free(verificacao);
         return 0;
@@ -160,6 +166,12 @@ pid_t executar_task(task *tarefas){
             }
             dup2(fd, STDIN_FILENO);
             close(fd);
+        }
+        if(diretorio_atual != NULL){
+            if(chdir(diretorio_atual) ==-1){ //altera a pasta de diretorio
+                perror("workdir");
+                _exit(1);
+            }
         }
         //entrou no if processo filho é substituido pela chamda do programa registado 
         //na task
@@ -281,10 +293,28 @@ void configurar_red(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas
     t->output = malloc(strlen(tokens[2]) + 1);
     strcpy(t->output, tokens[2]);
     t->append = 1;
+    }
 }
-    
 
+void configurar_workdir(char **tokens, int qnt_tokens){
+
+    if(qnt_tokens < 2){
+        printf("Erro: diretorio nao informado\n");
+        return;
+    }
+    if(access(tokens[1], F_OK) == -1){//essa funcao serve para validar se esse caminho existe mesmo
+        perror("workdir");
+        return;
+    }
+    free(diretorio_atual);
+    diretorio_atual = malloc(strlen(tokens[1]) + 1);
+    if(diretorio_atual == NULL){
+        printf("Erro de alocacao\n");
+        return;
+    }
+    strcpy(diretorio_atual, tokens[1]);
 }
+
 int main(){
 
     task *tarefas = NULL;
@@ -347,6 +377,15 @@ int main(){
                 continue;
             }
             configurar_red(lista_separada,tokens,tarefas,qnt_tarefas);
+            free(lista_separada);
+        }
+        if(comando == 5){
+            int tokens = qnt_token(linha);
+            char **lista_separada = tokenizar(linha, tokens);
+            if(lista_separada == NULL){
+                continue;
+            }
+            configurar_workdir(lista_separada, tokens);
             free(lista_separada);
         }
     }
