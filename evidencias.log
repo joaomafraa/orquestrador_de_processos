@@ -1566,4 +1566,24 @@ processflow> ^Cmake: *** [makefile:8: run] Interrupt
 [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
 [?2004lgcc -c processflow.c
 gcc processflow.o -o processflow
-[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processo
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task dormir /bin/sleep 10
+processflow> start dormir
+Job 1 iniciado - PID 53760
+processflow> da  [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clea[Kan[Kn
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run 
+[?2004l./processflow
+processflow> task dormir /bin/sleep 10
+processflow> start dormi
+Erro: tarefa dormi nao existe
+processflow> start dormir
+Job 1 iniciado - PID 58579
+processflow> jobs
+Job 1 - PID 58579 - dormir - executando
+processflow> jobs
+Job 1 - PID 58579 - dormir - executan

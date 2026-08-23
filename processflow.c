@@ -87,6 +87,10 @@
             free(verificacao);
             return 6;
         }
+        if(strcmp(verificacao[0], "jobs") == 0){
+            free(verificacao);
+            return 7;
+        }
         free(verificacao);
         return 0;
     }
@@ -446,6 +450,7 @@ void run_pipe(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
         }
     }
 }
+
 job *start_task(char **tokens,int qnt_tokens,task *tarefas,int qnt_tarefas,job *jobs,int *qnt_jobs,int *proximo_id){
 //principal diferença do start para o run com fork e waitpid é que ele fica executando em segundo plano
     if(qnt_tokens<2){
@@ -492,6 +497,23 @@ job *start_task(char **tokens,int qnt_tokens,task *tarefas,int qnt_tarefas,job *
     (*qnt_jobs)++;//aumenta a quantidade de jobs 
     (*proximo_id)++;//aumenta o proximo jobs
     return jobs;
+}
+
+void mostrar_jobs(job *jobs , int qnt_jobs){
+    for(int i=0;i<qnt_jobs;i++){
+        int status;
+    
+        pid_t resultado= waitpid(jobs[i].pid,&status,WNOHANG);// WNOHANG ele manda ver mas nao esperar o processo acabar
+    
+        if(resultado == 0){
+         printf("Job %d - PID %d - %s - executando\n",jobs[i].id,jobs[i].pid,jobs[i].nome);
+        }
+
+        else if(resultado == jobs[i].pid){
+        jobs[i].finalizado = 1;
+        printf("Job %d - PID %d - %s - finalizado\n",jobs[i].id,jobs[i].pid,jobs[i].nome);
+        }
+    }
 }
 int main(){
 
@@ -580,7 +602,10 @@ int main(){
             }
             jobs = start_task(lista_separada,tokens,tarefas,qnt_tarefas,jobs,&qnt_jobs,&proximo_id);
             free(lista_separada);
-    }
+        }
+        if(comando == 7){
+            mostrar_jobs(jobs, qnt_jobs);
+        }
     }
     free(diretorio_atual);
     return 0;
