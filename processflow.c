@@ -127,7 +127,28 @@ pid_t executar_task(task *tarefas){
     }
     return pid;
 }
-
+void run_task(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
+    if(qnt_tokens < 2){
+        printf("Erro: parametros insuficientes para run\n");
+        return;
+    }
+    task *t =buscar_task(tokens[1], tarefas, qnt_tarefas);
+    if(t == NULL){
+        printf("Erro: tarefa %s nao existe\n", tokens[1]);
+        return;
+    }
+    pid_t pid = executar_task(t);
+    if(pid > 0){
+        int status;
+        waitpid(pid, &status, 0);
+        if(WIFEXITED(status)){
+            int codigo = WEXITSTATUS(status);
+            if(codigo!=0){
+                printf("Tarefa %s terminou com codigo %d\n",t->nome,codigo);
+            }
+        }
+    }
+}
 void run_sequential(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
     
     if(qnt_tokens <3){
@@ -230,7 +251,7 @@ int main(){
             if(lista_separada == NULL){
                 continue;
             }
-            if(tokens < 3){
+            if(tokens < 2){
                 printf("Erro: parametros insuficientes para run\n");
 
                 free(lista_separada);
@@ -241,8 +262,10 @@ int main(){
             if(strcmp(lista_separada[1], "sequential") == 0){
                 run_sequential(lista_separada,tokens,tarefas,qnt_tarefas);
             }
-            if(strcmp(lista_separada[1], "parallel") == 0){
+            else if(strcmp(lista_separada[1], "parallel") == 0){
                 run_parallel(lista_separada,tokens,tarefas,qnt_tarefas);
+            }else{
+                run_task(lista_separada,tokens,tarefas,qnt_tarefas);
             }
             free(lista_separada);
             }
