@@ -1630,4 +1630,45 @@ processflow> task dormir /bin/sleep 10  20
 processflow> start dormir
 Job 1 iniciado - PID 72974
 processflow> jobs
-Job 1 - PID 72974 - 
+Job 1 - PID 72974 - dormir - executando
+processflow> wait 1
+Job 1 finalizado
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run [K[Kmake run [K run [K
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> task dormir /bin/sleep 10  20
+processflow> start dormir
+[1] 77988
+processflow> ^[[A^[[A        wait 1
+processflow> t start 1
+Erro: tarefa 1 nao existe
+processflow> start dormir
+[2] 78337
+processflow> jobs
+[2] 78337
+processflow> wait 2
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ ./processflow teste.pf
+[?2004lprocessflow> make clean
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make 
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+mak[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004l./processflow
+processflow> ^[[A^[[A^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run[Kclean./processflow teste.pf
+[?2004l^C
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ [K]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ ./processflow teste.pf[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmake clean
+[?2004lrm -f *.o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ mak[K[K[Kmake clean./processflow teste.pf
+[?2004ltask ola /bin/echo Ola
+run ola
+Ola
+exit[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orques

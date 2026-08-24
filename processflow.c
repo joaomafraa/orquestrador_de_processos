@@ -536,8 +536,20 @@ void esperar_job(char **tokens, int qnt_tokens, job *jobs, int qnt_jobs){
     }
     printf("Erro: job %d nao existe\n", id);
 }
-int main(){
+int main(int argc, char *argv[]){
+    FILE *entrada = stdin;
+    if(argc>2){
+        printf("Erro: quantidade de argumentos invalida\n");
+        return 1;
+    }
 
+    if(argc==2){
+        entrada = fopen(argv[1], "r");
+        if(entrada == NULL){
+            perror("Erro ao abrir workflow");
+            return 1;
+        }
+    }
     task *tarefas = NULL;
     int qnt_tarefas = 0;
 
@@ -548,11 +560,14 @@ int main(){
     int proximo_id = 1;
 
     while(1){
-
-        printf("processflow> ");
-
-        if(fgets(linha, 1024, stdin) == NULL){
+        if(argc==1){
+            printf("processflow> ");
+        }
+        if(fgets(linha, 1024, entrada) == NULL){
             break;
+        }
+        if(argc == 2){
+            printf("%s",linha);
         }
         char copia[1024];
         strcpy(copia, linha);
@@ -637,6 +652,9 @@ int main(){
             esperar_job(lista_separada,tokens,jobs,qnt_jobs);
             free(lista_separada);
         }
+    }
+    if(argc == 2){
+        fclose(entrada);
     }
     free(diretorio_atual);
     return 0;
