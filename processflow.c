@@ -590,6 +590,7 @@ int main(int argc, char *argv[]){
         }
         if(argc == 2){
             printf("%s",linha);
+            fflush(stdout);
         }
         char copia[1024];
         strcpy(copia, linha);

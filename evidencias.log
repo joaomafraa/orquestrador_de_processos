@@ -1945,4 +1945,7 @@ segundo
 -linha-dois
  exit
 \ No newline at end of file
-[?
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ exit
+[?2004lexit
+
+Script done on 2026-08-24 15:05:34-03:00 [COMMAND_EXIT_CODE="1"]
