@@ -497,7 +497,7 @@ job *start_task(char **tokens,int qnt_tokens,task *tarefas,int qnt_tarefas,job *
     }
 
     strcpy(novo->nome,t->nome);
-    printf("Job %d iniciado - PID %d\n",novo->id,novo->pid);
+    printf("[%d] %d\n", novo->id, novo->pid);
     (*qnt_jobs)++;//aumenta a quantidade de jobs 
     (*proximo_id)++;//aumenta o proximo jobs
     return jobs;
@@ -505,15 +505,16 @@ job *start_task(char **tokens,int qnt_tokens,task *tarefas,int qnt_tarefas,job *
 
 void mostrar_jobs(job *jobs , int qnt_jobs){
     for(int i=0;i<qnt_jobs;i++){
+        if(jobs[i].finalizado== 1){
+            continue;
+        }
         int status;
         pid_t resultado= waitpid(jobs[i].pid,&status,WNOHANG);// WNOHANG ele manda ver mas nao esperar o processo acabar
         if(resultado == 0){
-         printf("Job %d - PID %d - %s - executando\n",jobs[i].id,jobs[i].pid,jobs[i].nome);
+            printf("[%d] %d\n",jobs[i].id,jobs[i].pid);
         }
-
         else if(resultado == jobs[i].pid){
-        jobs[i].finalizado = 1;
-        printf("Job %d - PID %d - %s - finalizado\n",jobs[i].id,jobs[i].pid,jobs[i].nome);
+            jobs[i].finalizado = 1;
         }
     }
 }
@@ -530,7 +531,6 @@ void esperar_job(char **tokens, int qnt_tokens, job *jobs, int qnt_jobs){
             int status;
             waitpid(jobs[i].pid,&status,0);
             jobs[i].finalizado = 1;
-            printf("Job %d finalizado\n",jobs[i].id);
             return;
         }
     }
