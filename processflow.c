@@ -265,7 +265,7 @@ void run_parallel(char **tokens, int qnt_tokens,task *tarefas, int qnt_tarefas){
         }
         
         pid_t pid = executar_task(t);
-        if(pid>0){
+        if(pid>0){ //foi criado com sucesso entra na lista
             pids[qnt_pids] =pid;
             qnt_pids ++;
         }
@@ -395,7 +395,7 @@ void run_pipe(char **tokens, int qnt_tokens, task *tarefas, int qnt_tarefas){
                 dup2(arquivo, STDIN_FILENO);
                 close(arquivo);
             }
-            if(!ultima){//nao é a ultima  saida tem q ir para a proxima
+            if(!ultima){//é a ultima  saida tem q ir para a proxima
                 if(dup2(fd[1], STDOUT_FILENO) == -1){//transforma escrita na saida da proxima
                     perror("dup2");
                     _exit(1);
@@ -536,6 +536,27 @@ void esperar_job(char **tokens, int qnt_tokens, job *jobs, int qnt_jobs){
     }
     printf("Erro: job %d nao existe\n", id);
 }
+
+void liberar_tarefas(task *tarefas, int qnt_tarefas){
+
+    for(int i=0; i<qnt_tarefas; i++){
+        free(tarefas[i].nome);
+        free(tarefas[i].programa);
+        for(int j =0;j <tarefas[i].qnt_args; j++){
+            free(tarefas[i].argumentos[j]);
+        }
+        free(tarefas[i].argumentos);
+        free(tarefas[i].input);
+        free(tarefas[i].output);
+    }
+    free(tarefas);
+}
+void liberar_jobs(job *jobs, int qnt_jobs){
+    for(int i =0;i<qnt_jobs; i++){
+        free(jobs[i].nome);
+    }
+    free(jobs);
+}
 int main(int argc, char *argv[]){
     FILE *entrada = stdin;
     if(argc>2){
@@ -560,8 +581,9 @@ int main(int argc, char *argv[]){
     int proximo_id = 1;
 
     while(1){
-        if(argc==1){
+        if(argc==1 && isatty(STDIN_FILENO)){
             printf("processflow> ");
+            fflush(stdout);
         }
         if(fgets(linha, 1024, entrada) == NULL){
             break;
@@ -656,6 +678,8 @@ int main(int argc, char *argv[]){
     if(argc == 2){
         fclose(entrada);
     }
+    liberar_tarefas(tarefas, qnt_tarefas);
+    liberar_jobs(jobs, qnt_jobs);
     free(diretorio_atual);
     return 0;
 }
