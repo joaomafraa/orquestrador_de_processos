@@ -91,6 +91,10 @@
             free(verificacao);
             return 7;
         }
+        if(strcmp(verificacao[0], "wait") == 0){
+            free(verificacao);
+            return 8;
+        }
         free(verificacao);
         return 0;
     }
@@ -502,9 +506,7 @@ job *start_task(char **tokens,int qnt_tokens,task *tarefas,int qnt_tarefas,job *
 void mostrar_jobs(job *jobs , int qnt_jobs){
     for(int i=0;i<qnt_jobs;i++){
         int status;
-    
         pid_t resultado= waitpid(jobs[i].pid,&status,WNOHANG);// WNOHANG ele manda ver mas nao esperar o processo acabar
-    
         if(resultado == 0){
          printf("Job %d - PID %d - %s - executando\n",jobs[i].id,jobs[i].pid,jobs[i].nome);
         }
@@ -514,6 +516,25 @@ void mostrar_jobs(job *jobs , int qnt_jobs){
         printf("Job %d - PID %d - %s - finalizado\n",jobs[i].id,jobs[i].pid,jobs[i].nome);
         }
     }
+}
+
+void esperar_job(char **tokens, int qnt_tokens, job *jobs, int qnt_jobs){
+    if(qnt_tokens< 2){
+        printf("Erro: jobId nao informado\n");
+        return;
+    }
+    int id=atoi(tokens[1]);  
+
+    for(int i=0;i<qnt_jobs; i++){
+        if(jobs[i].id== id){
+            int status;
+            waitpid(jobs[i].pid,&status,0);
+            jobs[i].finalizado = 1;
+            printf("Job %d finalizado\n",jobs[i].id);
+            return;
+        }
+    }
+    printf("Erro: job %d nao existe\n", id);
 }
 int main(){
 
@@ -605,6 +626,16 @@ int main(){
         }
         if(comando == 7){
             mostrar_jobs(jobs, qnt_jobs);
+        }
+        if(comando == 8){
+
+        int tokens = qnt_token(linha);
+            char **lista_separada =tokenizar(linha, tokens);
+            if(lista_separada == NULL){
+                continue;
+            }
+            esperar_job(lista_separada,tokens,jobs,qnt_jobs);
+            free(lista_separada);
         }
     }
     free(diretorio_atual);

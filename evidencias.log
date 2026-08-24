@@ -1586,4 +1586,48 @@ Job 1 iniciado - PID 58579
 processflow> jobs
 Job 1 - PID 58579 - dormir - executando
 processflow> jobs
-Job 1 - PID 58579 - dormir - executan
+Job 1 - PID 58579 - dormir - executando
+processflow> jobs
+Job 1 - PID 58579 - dormir - executando
+processflow> jobs
+Job 1 - PID 58579 - dormir - finalizado
+processflow> [?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run [K
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kesperar_job[m[K’:
+[01m[Kprocessflow.c:528:12:[m[K [01;35m[Kwarning: [m[Kinitialization of ‘[01m[Kint[m[K’ from ‘[01m[Kchar *[m[K’ makes integer from pointer without a cast [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wint-conversion-Wint-conversion]8;;[m[K]
+  528 |     int id=[01;35m[Ktokens[m[K[1];
+      |            [01;35m[K^~~~~~[m[K
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+[01m[Kprocessflow.c:[m[K In function ‘[01m[Kesperar_job[m[K’:
+[01m[Kprocessflow.c:528:12:[m[K [01;35m[Kwarning: [m[Kcast from pointer to integer of different size [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpointer-to-int-cast-Wpointer-to-int-cast]8;;[m[K]
+  528 |     int id=[01;35m[K([m[Kint)tokens[1];
+      |            [01;35m[K^[m[K
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run 
+[?2004l./processflow
+processflow> task dormir /bin/sleep 10  15
+processflow> start dormir
+Job 1 iniciado - PID 70846
+processflow> jobs
+Job 1 - PID 70846 - dormir - executando
+processflow> wait 1
+Job 1 finalizado
+processflow> jobs
+processflow> jobs
+processflow> jobs 1
+processflow> ^Cmake: *** [makefile:8: run] Interrupt
+
+[?2004h]0;joao@LaptopJoaoM: /mnt/c/SO/orquestrador_de_processos[01;32mjoao@LaptopJoaoM[00m:[01;34m/mnt/c/SO/orquestrador_de_processos[00m$ make run
+[?2004lgcc -c processflow.c
+gcc processflow.o -o processflow
+./processflow
+processflow> task dormir /bin/sleep 10  20
+processflow> start dormir
+Job 1 iniciado - PID 72974
+processflow> jobs
+Job 1 - PID 72974 - 
